@@ -1,158 +1,62 @@
-// GP SPORTS HD JAVASCRIPT
+const http = require("http");
 
-const BACKEND_URL = "https://gp-sports-hd.onrender.com";
+const PORT = process.env.PORT || 3000;
+const API_KEY = process.env.API_FOOTBALL_KEY;
 
-function showWelcome() {
-    alert(
-        "Welcome to GP SPORTS HD!\n\n" +
-        "Bringing Smiles to the World 🌍⚽"
-    );
-}
+const server = http.createServer(async (req, res) => {
 
-function openSearch() {
-    const search = prompt(
-        "What sports information are you looking for?"
-    );
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
 
-    if (search) {
-        alert(
-            "You searched for: " +
-            search
-        );
-    }
-}
+    console.log("Request received:", req.url);
 
+    if (req.url === "/api/live") {
 
-// ==============================
-// LIVE SCORES
-// ==============================
-
-async function loadLiveScores() {
-
-    try {
-
-        const response = await fetch(
-            `${BACKEND_URL}/api/live`
-        );
-
-        const data = await response.json();
-
-        console.log("API-Football data:", data);
-
-        if (!data.response) {
-            console.log("No live matches found.");
+        if (!API_KEY) {
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                error: "API_FOOTBALL_KEY is missing"
+            }));
             return;
         }
 
-        const matches = data.response;
+        try {
 
-        const scoreBox = document.querySelector(".score-box");
+            const response = await fetch(
+                "https://v3.football.api-sports.io/fixtures?live=all",
+                {
+                    headers: {
+                        "x-apisports-key": API_KEY
+                    }
+                }
+            );
 
-        if (!scoreBox) return;
+            const data = await response.json();
 
-        scoreBox.innerHTML = `
-            <div class="score-header">
-                <strong>LIVE MATCHES</strong>
-                <span>Updated automatically</span>
-            </div>
-        `;
+            res.writeHead(response.status);
+            res.end(JSON.stringify(data));
 
-        if (matches.length === 0) {
+        } catch (error) {
 
-            scoreBox.innerHTML += `
-                <div class="match">
-                    <div>
-                        <strong>No live matches</strong>
-                        <br>
-                        Check again later.
-                    </div>
-                </div>
-            `;
+            console.error("API error:", error);
 
-            return;
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                error: "Failed to fetch live scores",
+                details: error.message
+            }));
         }
 
-        matches.forEach(match => {
-
-            const home =
-                match.teams.home.name;
-
-            const away =
-                match.teams.away.name;
-
-            const homeScore =
-                match.goals.home ?? 0;
-
-            const awayScore =
-                match.goals.away ?? 0;
-
-            const minute =
-                match.fixture.status.elapsed
-                ? match.fixture.status.elapsed + "'"
-                : "LIVE";
-
-            scoreBox.innerHTML += `
-
-                <div class="match">
-
-                    <div>
-                        <strong>${home}</strong>
-                        <br>
-                        ${away}
-                    </div>
-
-                    <div class="score">
-                        ${homeScore} - ${awayScore}
-                    </div>
-
-                    <div>
-                        <span class="live">
-                            ${minute}
-                        </span>
-                    </div>
-
-                </div>
-
-            `;
-
-        });
-
-    } catch (error) {
-
-        console.error(
-            "Live scores error:",
-            error
-        );
-
+        return;
     }
 
-}
+    res.writeHead(404);
 
+    res.end(JSON.stringify({
+        error: "Not found"
+    }));
+});
 
-// Load scores when page opens
-loadLiveScores();
-
-
-// Refresh every 60 seconds
-setInterval(
-    loadLiveScores,
-    60000
-);
-
-
-// ==============================
-// SYSTEM CLOCK
-// ==============================
-
-function updateClock() {
-
-    const now = new Date();
-
-    console.log(
-        "GP SPORTS HD:",
-        now.toLocaleTimeString()
-    );
-
-}
-
-setInterval(updateClock, 1000);
+server.listen(PORT, "0.0.0.0", () => {
+    console.log(`GP SPORTS HD API running on port ${PORT}`);
+});
