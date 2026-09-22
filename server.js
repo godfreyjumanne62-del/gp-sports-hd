@@ -1,0 +1,59 @@
+const http = require("http");
+
+const PORT = process.env.PORT || 3000;
+const API_KEY = process.env.API_FOOTBALL_KEY;
+
+const server = http.createServer(async (req, res) => {
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
+
+    if (req.url === "/api/live") {
+
+        try {
+
+            const response = await fetch(
+                "https://v3.football.api-sports.io/fixtures?live=all",
+                {
+                    headers: {
+                        "x-apisports-key": API_KEY
+                    }
+                }
+            );
+
+            const data = await response.json();
+
+            res.writeHead(response.ok ? 200 : response.status);
+
+            res.end(JSON.stringify(data));
+
+        } catch (error) {
+
+            res.writeHead(500);
+
+            res.end(
+                JSON.stringify({
+                    error: "Failed to fetch live scores"
+                })
+            );
+        }
+
+        return;
+    }
+
+    res.writeHead(404);
+
+    res.end(
+        JSON.stringify({
+            error: "Not found"
+        })
+    );
+});
+
+server.listen(PORT, "0.0.0.0", () => {
+
+    console.log(
+        `GP SPORTS HD API running on port ${PORT}`
+    );
+
+});
