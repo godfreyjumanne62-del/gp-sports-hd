@@ -488,3 +488,22 @@ footer a:hover,
     width: 220px;
   }
 }
+.header-banner-link {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.header-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 600px) {
+  .header-banner {
+    max-height: 220px;
+  }
+}
