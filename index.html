@@ -3,388 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>GP SPORTS HD | Bringing Smiles to the World</title>
-
+    <meta name="description" content="GP SPORTS HD - Football, Tanzania sports, EPL, Champions League, transfers, eFootball and fantasy football.">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div>Latest Sports News</div>
-        <div>🔴 GP SPORTS HD LIVE</div>
-    </div>
-
-    <!-- HEADER -->
-    <header>
-
-        <div class="logo">
-            GP SPORTS <span>HD</span>
-
-            <small>
-                Bringing Smiles to the World
-            </small>
+    <header class="site-header">
+        <div class="top-header">
+            <div class="brand">
+                <div class="logo">GP <span>SPORTS</span> HD</div>
+                <div class="motto">Bringing Smiles to the World 🌍</div>
+            </div>
+            <button class="search-btn" onclick="openSearch()">🔍 Search</button>
         </div>
-
-        <button class="search-btn" onclick="openSearch()">
-            🔍 Search
-        </button>
-
+        <nav class="main-nav">
+            <a href="#home">Home</a><a href="#football">Football</a><a href="#tanzania">Tanzania</a>
+            <a href="#epl">EPL</a><a href="#ucl">Champions League</a><a href="#transfers">Transfers</a>
+            <a href="#efootball">eFootball</a><a href="#fantasy">Fantasy</a><a href="#live">Live Scores</a>
+        </nav>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
+    <div class="breaking-bar">
+        <div class="breaking-label">🔴 BREAKING</div>
+        <div class="breaking-text">GP SPORTS HD — Bringing you the latest football and sports updates</div>
+    </div>
 
-        <a href="#home">Home</a>
-        <a href="#football">Football</a>
-        <a href="#tanzania">Tanzania</a>
-        <a href="#epl">EPL</a>
-        <a href="#ucl">Champions League</a>
-        <a href="#transfers">Transfers</a>
-        <a href="#efootball">eFootball</a>
-        <a href="#fantasy">Fantasy</a>
-        <a href="#scores">Live Scores</a>
-        <a href="#videos">Videos</a>
-
-    </nav>
-
-
-    <!-- MAIN -->
     <main id="home">
-
-        <!-- BREAKING NEWS -->
-        <div class="breaking">
-
-            <strong>BREAKING</strong>
-
-            <marquee>
-                Welcome to GP SPORTS HD — Bringing Smiles to the World
-            </marquee>
-
-        </div>
-
-
-        <!-- HERO -->
         <section class="hero">
-
             <div class="hero-content">
-
-                <span class="category">
-                    GP SPORTS HD
-                </span>
-
-                <h1>
-                    Your Home of Sports News
-                </h1>
-
-                <p>
-                    Get football news, fixtures, results,
-                    transfers, fantasy football, eFootball
-                    updates and more.
-                </p>
-
-                <button onclick="showWelcome()">
-                    Explore GP SPORTS HD
-                </button>
-
+                <span class="category">⚽ FOOTBALL</span>
+                <h1>Welcome to GP SPORTS HD</h1>
+                <p>Your home for football news, live scores, transfers, fixtures, results and fantasy football.</p>
+                <a class="primary-btn" href="#football">Explore Sports →</a>
             </div>
-
         </section>
 
+        <section id="live" class="section">
+            <div class="section-heading">
+                <div><span class="section-tag">LIVE</span><h2>Live Scores</h2></div>
+                <span class="update-text">Updates automatically</span>
+            </div>
+            <div class="score-box"><div class="score-loading">Loading live matches...</div></div>
+        </section>
 
-        <!-- LATEST NEWS -->
-        <section class="section">
-
-            <h2>📰 Latest News</h2>
-
+        <section id="football" class="section">
+            <div class="section-heading">
+                <div><span class="section-tag">NEWS</span><h2>Latest Football News</h2></div>
+                <a href="#transfers" class="view-all">Explore Topics →</a>
+            </div>
             <div class="news-grid">
-
-                <article class="news-card">
-
-                    <div class="news-image">
-                        ⚽
-                    </div>
-
-                    <div class="news-content">
-
-                        <span>Football</span>
-
-                        <h3>
-                            Latest Football News
-                        </h3>
-
-                        <p>
-                            Get the latest football stories
-                            from Tanzania and around the world.
-                        </p>
-
-                        <small>
-                            GP SPORTS HD • Today
-                        </small>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card">
-
-                    <div class="news-image">
-                        🔥
-                    </div>
-
-                    <div class="news-content">
-
-                        <span>Transfers</span>
-
-                        <h3>
-                            Transfer Centre
-                        </h3>
-
-                        <p>
-                            Follow confirmed transfers and
-                            important transfer reports.
-                        </p>
-
-                        <small>
-                            GP SPORTS HD • Today
-                        </small>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card">
-
-                    <div class="news-image">
-                        🏆
-                    </div>
-
-                    <div class="news-content">
-
-                        <span>Champions League</span>
-
-                        <h3>
-                            Champions League Updates
-                        </h3>
-
-                        <p>
-                            Follow Europe's biggest football
-                            competition.
-                        </p>
-
-                        <small>
-                            GP SPORTS HD • Today
-                        </small>
-
-                    </div>
-
-                </article>
-
+                <article class="news-card"><div class="news-image">⚽</div><div class="news-content"><span class="news-category">Football</span><h3>Latest Football News and Updates</h3><p>Get the latest stories from the world of football.</p><span class="news-date">GP SPORTS HD</span></div></article>
+                <article class="news-card"><div class="news-image">🏆</div><div class="news-content"><span class="news-category">Champions League</span><h3>Champions League Latest Updates</h3><p>Follow Europe's biggest football competition.</p><span class="news-date">GP SPORTS HD</span></div></article>
+                <article id="transfers" class="news-card"><div class="news-image">🔄</div><div class="news-content"><span class="news-category">Transfers</span><h3>Transfer News and Rumours</h3><p>Stay updated with the latest transfer developments.</p><span class="news-date">GP SPORTS HD</span></div></article>
             </div>
-
         </section>
 
-
-        <!-- TANZANIA -->
-        <section class="section" id="tanzania">
-
-            <h2>🇹🇿 Tanzania Sports</h2>
-
-            <div class="category-grid">
-
-                <div class="category-card">
-                    <h3>Simba SC</h3>
-                    <p>
-                        News, fixtures and results.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>Yanga SC</h3>
-                    <p>
-                        News, fixtures and results.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>Azam FC</h3>
-                    <p>
-                        Latest club updates.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>Taifa Stars</h3>
-                    <p>
-                        Tanzania national team news.
-                    </p>
-                </div>
-
+        <section id="tanzania" class="section">
+            <div class="section-heading"><div><span class="section-tag">TANZANIA</span><h2>Tanzania Football</h2></div></div>
+            <div class="team-grid">
+                <div class="team-card"><div class="team-icon">🔴</div><h3>Simba SC</h3><p>Latest Simba news, results and fixtures.</p></div>
+                <div class="team-card"><div class="team-icon">🟢</div><h3>Yanga SC</h3><p>Latest Yanga news, results and fixtures.</p></div>
+                <div class="team-card"><div class="team-icon">🔵</div><h3>Azam FC</h3><p>Latest Azam FC news and updates.</p></div>
+                <div class="team-card"><div class="team-icon">🇹🇿</div><h3>Taifa Stars</h3><p>Tanzania national team updates.</p></div>
             </div>
-
         </section>
 
-
-        <!-- LIVE SCORES -->
-        <section class="section" id="scores">
-
-            <h2>🔴 Live Scores</h2>
-
-            <div class="score-box">
-
-                <div class="score-header">
-                    <strong>LIVE MATCHES</strong>
-                    <span>Updated automatically</span>
-                </div>
-
-
-                <div class="match">
-
-                    <div>
-                        <strong>Home Team</strong>
-                        <br>
-                        Away Team
-                    </div>
-
-                    <div class="score">
-                        2 - 1
-                    </div>
-
-                    <div>
-                        <span class="live">
-                            75'
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div class="match">
-
-                    <div>
-                        <strong>Team A</strong>
-                        <br>
-                        Team B
-                    </div>
-
-                    <div class="score">
-                        0 - 0
-                    </div>
-
-                    <div>
-                        <span class="upcoming">
-                            19:00
-                        </span>
-                    </div>
-
-                </div>
-
+        <section id="epl" class="section">
+            <div class="section-heading"><div><span class="section-tag">COMPETITIONS</span><h2>Football Competitions</h2></div></div>
+            <div class="competition-grid">
+                <div class="competition-card"><div class="competition-icon">🏴</div><h3>Premier League</h3><p>EPL news, fixtures, results and tables.</p></div>
+                <div id="ucl" class="competition-card"><div class="competition-icon">🏆</div><h3>Champions League</h3><p>UCL news, fixtures and results.</p></div>
+                <div class="competition-card"><div class="competition-icon">🌍</div><h3>International Football</h3><p>International football updates.</p></div>
             </div>
-
         </section>
 
-
-        <!-- eFOOTBALL -->
-        <section class="section" id="efootball">
-
-            <h2>🎮 eFootball</h2>
-
-            <div class="category-grid">
-
-                <div class="category-card">
-                    <h3>eFootball News</h3>
-                    <p>
-                        Latest game updates and events.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>Player Guides</h3>
-                    <p>
-                        Tips, skills and player information.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>Pack Updates</h3>
-                    <p>
-                        Follow new player packs and campaigns.
-                    </p>
-                </div>
-
+        <section id="efootball" class="section">
+            <div class="special-card">
+                <div><span class="section-tag">GAMING</span><h2>eFootball</h2><p>eFootball news, updates, events, players, packs and tips.</p><a class="primary-btn" href="#fantasy">Explore More →</a></div>
+                <div class="special-icon">🎮⚽</div>
             </div>
-
         </section>
 
-
-        <!-- FANTASY -->
-        <section class="section" id="fantasy">
-
-            <h2>📊 Fantasy Football</h2>
-
-            <div class="category-grid">
-
-                <div class="category-card">
-                    <h3>FPL</h3>
-                    <p>
-                        Fantasy Premier League updates.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>UCL Fantasy</h3>
-                    <p>
-                        Champions League Fantasy.
-                    </p>
-                </div>
-
-                <div class="category-card">
-                    <h3>RSL Fantasy</h3>
-                    <p>
-                        Saudi Pro League Fantasy.
-                    </p>
-                </div>
-
+        <section id="fantasy" class="section">
+            <div class="section-heading"><div><span class="section-tag">FANTASY</span><h2>Fantasy Football</h2></div></div>
+            <div class="fantasy-grid">
+                <div class="fantasy-card"><h3>FPL</h3><p>Fantasy Premier League news, tips and team ideas.</p></div>
+                <div class="fantasy-card"><h3>UCL Fantasy</h3><p>Champions League Fantasy tips and updates.</p></div>
+                <div class="fantasy-card"><h3>RSL Fantasy</h3><p>Saudi Pro League Fantasy updates and tips.</p></div>
             </div>
-
         </section>
-
     </main>
 
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
-            GP SPORTS <span>HD</span>
-        </div>
-
-        <p>
-            Bringing Smiles to the World
-        </p>
-
-        <div class="social">
-
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">TikTok</a>
-
-        </div>
-
-        <p class="copyright">
-            © 2026 GP SPORTS HD. All Rights Reserved.
-        </p>
-
+    <footer class="site-footer">
+        <div class="footer-brand"><div class="logo">GP <span>SPORTS</span> HD</div><p>Bringing Smiles to the World 🌍</p></div>
+        <div class="footer-links"><a href="#football">Football</a><a href="#tanzania">Tanzania</a><a href="#epl">EPL</a><a href="#ucl">Champions League</a><a href="#efootball">eFootball</a><a href="#fantasy">Fantasy</a></div>
+        <div class="copyright">© 2026 GP SPORTS HD. All rights reserved.</div>
     </footer>
-
-
-    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
-
 </body>
 </html>
