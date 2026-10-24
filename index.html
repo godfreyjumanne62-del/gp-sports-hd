@@ -24,15 +24,37 @@
     </div>
 
     <main id="home">
-        
+      
+<section id="watch-live" class="watch-live">
+  <div class="watch-live-heading">
+    <span class="live-indicator">● LIVE</span>
+    <h2>Watch Live Football</h2>
+    <p>Watch officially available football streams here.</p>
+  </div>
 
-        <section id="live" class="section">
-            <div class="section-heading">
-                <div><span class="section-tag">LIVE</span><h2>Live Scores</h2></div>
-                <span class="update-text">Updates automatically</span>
-            </div>
-            <div class="score-box"><div class="score-loading">Loading live matches...</div></div>
-        </section>
+  <div class="live-player">
+    <div id="live-placeholder">
+      <span class="play-symbol">▶</span>
+      <h3>No official stream selected</h3>
+      <p>Official broadcasts will appear here when available.</p>
+    </div>
+
+    <iframe
+      id="official-live-player"
+      src=""
+      title="Official live football stream"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      style="display:none">
+    </iframe>
+  </div>
+
+  <p class="stream-note">
+    Streams are shown subject to broadcaster availability and viewing rights.
+  </p>
+</section>
 
         <section id="football" class="section">
             <div class="section-heading">
