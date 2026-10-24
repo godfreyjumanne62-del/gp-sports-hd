@@ -59,9 +59,33 @@ button {
 
 /* HEADER */
 header,
+
+/* Header: clean white background */
 .site-header {
-    background: var(--white);
-    border-bottom: 3px solid var(--green);
+  background: #ffffff;
+  border-bottom: 2px solid #087f3e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+/* Keep green mainly for navigation */
+nav,
+.navbar {
+  background-color: #063b2a;
+  color: #ffffff;
+}
+
+/* Softer page background */
+body {
+  background-color: #f7faf8;
 }
 
 .logo,
