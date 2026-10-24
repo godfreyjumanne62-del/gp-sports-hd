@@ -610,3 +610,13 @@ footer a {
     max-height: 220px;
   }
 }
+body {
+  background-color: #ffffff !important;
+}
+
+header,
+nav,
+.site-header {
+  background-color: #166534 !important;
+  color: #ffffff !important;
+}
