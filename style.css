@@ -526,3 +526,87 @@ footer a:hover,
     max-height: 220px;
   }
 }
+
+:root {
+  --primary-green: #15803d;
+  --dark-green: #064e3b;
+  --light-green: #dcfce7;
+  --white: #ffffff;
+  --text-dark: #163326;
+}
+
+/* Muonekano wa jumla */
+body {
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+/* Header na navigation */
+header,
+.site-header,
+.navbar,
+nav {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+/* Links */
+a {
+  color: var(--primary-green);
+}
+
+nav a,
+header a {
+  color: var(--white);
+}
+
+/* Buttons */
+button,
+.btn,
+.button {
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+}
+
+/* Sehemu za habari za michezo */
+.card,
+.match-card,
+.news-card {
+  background-color: var(--light-green);
+  color: var(--text-dark);
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+}
+
+/* Vichwa vya habari */
+h1,
+h2,
+h3 {
+  color: var(--dark-green);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+footer a {
+  color: var(--white);
+}
+
+/* Banner ibaki na ukubwa wake */
+.header-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+@media (max-width: 600px) {
+  .header-banner {
+    max-height: 220px;
+  }
+}
