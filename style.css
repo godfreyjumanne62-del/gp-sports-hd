@@ -899,3 +899,133 @@ button:hover {
     gap: 12px;
   }
 }
+
+/* GP SPORTS HD — Balanced Green & White Theme */
+
+/* Main page */
+body {
+  background: #f5f8f6 !important;
+  color: #182820;
+}
+
+/* Keep the header white */
+header,
+.site-header {
+  background: #ffffff !important;
+  border-bottom: 2px solid #e1e9e3 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Preserve the original header image */
+.header-banner-link {
+  display: block;
+  background: #ffffff !important;
+}
+
+.header-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  background: #ffffff !important;
+}
+
+/* Dark green navigation only */
+nav,
+.main-nav {
+  background: #073b2a !important;
+  color: #ffffff !important;
+}
+
+nav a,
+.main-nav a {
+  color: #ffffff !important;
+}
+
+nav a:hover,
+.main-nav a:hover {
+  background: #15803d !important;
+}
+
+/* Breaking news stays red */
+.breaking,
+.breaking-bar {
+  background: #b91c1c !important;
+  color: #ffffff !important;
+  border-left: 5px solid #ef4444 !important;
+}
+
+/* White cards instead of green cards */
+.news-card,
+.category-card,
+.team-card,
+.competition-card,
+.fantasy-card,
+.score-box {
+  background: #ffffff !important;
+  color: #182820 !important;
+  border: 1px solid #e0e8e2 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(7, 59, 42, 0.06);
+}
+
+/* Green headings and small accents */
+h1,
+h2,
+h3,
+.section-title {
+  color: #073b2a;
+}
+
+.section-title,
+.section h2 {
+  border-left-color: #15803d;
+}
+
+/* Use green for buttons, not every background */
+button,
+.btn,
+.button,
+.primary-btn {
+  background: #15803d !important;
+  color: #ffffff !important;
+  border-radius: 7px;
+}
+
+button:hover,
+.btn:hover,
+.button:hover,
+.primary-btn:hover {
+  background: #073b2a !important;
+}
+
+/* Live score headings */
+.score-header {
+  background: #073b2a !important;
+  color: #ffffff !important;
+}
+
+.score {
+  color: #15803d !important;
+}
+
+/* Footer remains dark green */
+footer,
+.site-footer {
+  background: #073b2a !important;
+  color: #ffffff !important;
+}
+
+footer a,
+.site-footer a {
+  color: #ffffff !important;
+}
+
+/* Mobile header */
+@media (max-width: 600px) {
+  .header-banner {
+    max-height: 220px;
+    object-fit: contain;
+  }
+}
