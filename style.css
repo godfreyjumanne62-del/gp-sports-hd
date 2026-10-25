@@ -1109,3 +1109,98 @@ footer a,
     padding: 15px;
   }
 }
+
+/* GP SPORTS HD — Watch Live Football */
+.watch-live {
+  background: #ffffff;
+  padding: 24px;
+  border: 1px solid #dce9df;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(7, 59, 42, 0.06);
+}
+
+.watch-live label {
+  display: block;
+  margin: 14px 0 8px;
+  font-weight: 700;
+  color: #063b2a;
+}
+
+#league-select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 18px;
+  border: 1px solid #b8cdbd;
+  border-radius: 8px;
+  background: #fff;
+  color: #183328;
+  font-size: 16px;
+}
+
+.watch-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #071b13;
+  color: #fff;
+}
+
+#watch-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#watch-message h3 {
+  color: #fff;
+  margin: 12px 0;
+}
+
+#watch-message p {
+  color: #d7e5dc;
+}
+
+.watch-play-icon {
+  background: #15803d;
+  padding: 14px 18px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+#watch-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+#watch-frame[hidden] {
+  display: none;
+}
+
+.watch-note {
+  color: #66776d;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+#watch-official-link {
+  margin-top: 12px;
+}
+
+#watch-official-link a {
+  font-weight: 700;
+  color: #087f3e;
+}
+
+@media (max-width: 600px) {
+  .watch-live {
+    padding: 15px;
+  }
+}
