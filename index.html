@@ -109,6 +109,91 @@
         <div class="footer-links"><a href="#football">Football</a><a href="#tanzania">Tanzania</a><a href="#epl">EPL</a><a href="#ucl">Champions League</a><a href="#efootball">eFootball</a><a href="#fantasy">Fantasy</a></div>
         <div class="copyright">© 2026 GP SPORTS HD. All rights reserved.</div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js">
+<script>
+const watchSources = {
+  epl: {
+    name: "Premier League",
+    url: "",
+    official: "https://www.premierleague.com/"
+  },
+  ucl: {
+    name: "UEFA Champions League",
+    url: "",
+    official: "https://www.uefa.com/uefachampionsleague/"
+  },
+  nbc: {
+    name: "NBC Premier League Tanzania",
+    url: "",
+    official: "https://www.azamtv.com/"
+  },
+  bundesliga: {
+    name: "Bundesliga",
+    url: "",
+    official: "https://www.bundesliga.com/"
+  },
+  laliga: {
+    name: "La Liga",
+    url: "",
+    official: "https://www.laliga.com/"
+  },
+  seriea: {
+    name: "Serie A",
+    url: "",
+    official: "https://www.legaseriea.it/"
+  },
+  ligue1: {
+    name: "Ligue 1",
+    url: "",
+    official: "https://www.ligue1.com/"
+  },
+  efootball: {
+    name: "eFootball",
+    url: "",
+    official: "https://www.konami.com/efootball/"
+  }
+};
+
+const leagueSelect = document.getElementById("league-select");
+const watchFrame = document.getElementById("watch-frame");
+const watchMessage = document.getElementById("watch-message");
+const officialLink = document.getElementById("watch-official-link");
+
+leagueSelect.addEventListener("change", function () {
+  const stream = watchSources[this.value];
+
+  watchFrame.src = "about:blank";
+  watchFrame.hidden = true;
+  watchMessage.style.display = "flex";
+  officialLink.replaceChildren();
+
+  if (!stream) {
+    watchMessage.querySelector("h3").textContent =
+      "Choose a competition";
+    watchMessage.querySelector("p").textContent =
+      "Select a competition from the menu above.";
+    return;
+  }
+
+  watchMessage.querySelector("h3").textContent =
+    stream.name + " — official broadcasts";
+  watchMessage.querySelector("p").textContent =
+    "No embedded stream has been configured yet. Visit the official broadcaster below.";
+
+  const link = document.createElement("a");
+  link.href = stream.official;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Visit official website ↗";
+  officialLink.appendChild(link);
+
+  if (stream.url) {
+    watchFrame.src = stream.url;
+    watchFrame.hidden = false;
+    watchMessage.style.display = "none";
+  }
+});
+</script>
+
 </body>
 </html>
