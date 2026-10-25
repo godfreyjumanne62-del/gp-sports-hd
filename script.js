@@ -156,3 +156,93 @@ function updateClock() {
 }
 
 setInterval(updateClock, 1000);
+
+ 
+// ==============================
+// WATCH LIVE FOOTBALL
+// ==============================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const leagueSelect = document.getElementById("league-select");
+    const watchFrame = document.getElementById("watch-frame");
+    const watchMessage = document.getElementById("watch-message");
+    const officialLink = document.getElementById("watch-official-link");
+
+    // Official broadcaster or competition websites.
+    // These are links, not confirmed live-stream embed URLs.
+    const watchSources = {
+        epl: {
+            name: "Premier League",
+            url: "https://www.premierleague.com/"
+        },
+        ucl: {
+            name: "UEFA Champions League",
+            url: "https://www.uefa.com/uefachampionsleague/"
+        },
+        nbc: {
+            name: "NBC Premier League Tanzania",
+            url: "https://www.azamtv.com/"
+        },
+        bundesliga: {
+            name: "Bundesliga",
+            url: "https://www.bundesliga.com/"
+        },
+        laliga: {
+            name: "La Liga",
+            url: "https://www.laliga.com/"
+        },
+        seriea: {
+            name: "Serie A",
+            url: "https://www.legaseriea.it/"
+        },
+        ligue1: {
+            name: "Ligue 1",
+            url: "https://ligue1.com/"
+        },
+        efootball: {
+            name: "eFootball",
+            url: "https://www.konami.com/efootball/"
+        }
+    };
+
+    if (!leagueSelect || !watchFrame || !watchMessage || !officialLink) {
+        console.warn(
+            "Watch Live section: Check the HTML element IDs."
+        );
+        return;
+    }
+
+    leagueSelect.addEventListener("change", function () {
+        const selected = watchSources[this.value];
+
+        // Clear any previously selected stream
+        watchFrame.src = "about:blank";
+        watchFrame.hidden = true;
+        watchMessage.hidden = false;
+        officialLink.innerHTML = "";
+
+        if (!selected) {
+            watchMessage.innerHTML = `
+                <span class="play-symbol">▶</span>
+                <h3>Choose a competition</h3>
+                <p>Select a league to find its official website.</p>
+            `;
+            return;
+        }
+
+        watchMessage.innerHTML = `
+            <span class="play-symbol">▶</span>
+            <h3>${selected.name}</h3>
+            <p>A live stream has not been connected yet.</p>
+            <p>Use the official website link below to check viewing options.</p>
+        `;
+
+        const link = document.createElement("a");
+        link.href = selected.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Open official website ↗";
+
+        officialLink.appendChild(link);
+    });
+});
