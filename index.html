@@ -29,32 +29,45 @@
   <div class="watch-live-heading">
     <span class="live-indicator">● LIVE</span>
     <h2>Watch Live Football</h2>
-    <p>Watch officially available football streams here.</p>
+    <p>Choose a competition to find official broadcasts.</p>
   </div>
 
+  <label for="league-select">Choose competition</label>
+  <select id="league-select">
+    <option value="">Select a competition</option>
+    <option value="epl">Premier League (EPL)</option>
+    <option value="ucl">UEFA Champions League</option>
+    <option value="nbc">NBC Premier League Tanzania</option>
+    <option value="bundesliga">Bundesliga</option>
+    <option value="laliga">La Liga</option>
+    <option value="seriea">Serie A</option>
+    <option value="ligue1">Ligue 1</option>
+    <option value="efootball">eFootball</option>
+  </select>
+
   <div class="live-player">
-    <div id="live-placeholder">
+    <div id="watch-message">
       <span class="play-symbol">▶</span>
-      <h3>No official stream selected</h3>
-      <p>Official broadcasts will appear here when available.</p>
+      <h3>Choose a competition</h3>
+      <p>No official stream has been configured yet.</p>
     </div>
 
-    <iframe
-      id="official-live-player"
-      src=""
-      title="Official live football stream"
-      allow="autoplay; encrypted-media; picture-in-picture"
+    <iframe id="watch-frame"
+      title="Official football stream"
+      src="about:blank"
+      allow="encrypted-media; picture-in-picture"
       allowfullscreen
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      style="display:none">
+      loading="Fast"
+      hidden>
     </iframe>
   </div>
 
+  <div id="watch-official-link"></div>
   <p class="stream-note">
-    Streams are shown subject to broadcaster availability and viewing rights.
+    Streams depend on official availability and viewing rights.
   </p>
 </section>
+
 
         <section id="football" class="section">
             <div class="section-heading">
