@@ -159,7 +159,50 @@ setInterval(updateClock, 1000);
 
  
 // ==============================
-// WATCH LIVE FOOTBALL
+
+document.addEventListener("DOMContentLoaded", function () {
+  const select = document.getElementById("league-select");
+  const input = document.getElementById("watch-video-url");
+  const frame = document.getElementById("watch-frame");
+  const message = document.getElementById("watch-message");
+  const playButton = document.getElementById("watch-play-button");
+
+  if (!select || !input || !frame || !message || !playButton) {
+    console.error("Watch Live: HTML elements are missing.");
+    return;
+  }
+
+  playButton.addEventListener("click", function () {
+    try {
+      const url = new URL(input.value.trim());
+      const host = url.hostname.toLowerCase();
+      let id = "";
+
+      if (["youtube.com", "www.youtube.com", "m.youtube.com"].includes(host)) {
+        if (url.pathname === "/watch") {
+          id = url.searchParams.get("v") || "";
+        } else if (/^\/(embed|live)\/[A-Za-z0-9_-]{11}/.test(url.pathname)) {
+          id = url.pathname.split("/")[2] || "";
+        }
+      } else if (["youtu.be", "www.youtu.be"].includes(host)) {
+        id = url.pathname.slice(1);
+      }
+
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id)) {
+        throw new Error("Invalid video link");
+      }
+
+      frame.src = "https://www.youtube.com/embed/" + id;
+      message.textContent =
+        "Video imepakiwa. Ikiwa mmiliki anaruhusu embedding, itacheza hapa.";
+    } catch (error) {
+      frame.src = "about:blank";
+      message.textContent =
+        "Kiungo si sahihi. Tumia kiungo cha video ya YouTube, si ukurasa wa kawaida wa ligi.";
+    }
+  });
+});
+
 // ==============================
 
 document.addEventListener("DOMContentLoaded", function () {
