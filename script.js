@@ -191,8 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!/^[A-Za-z0-9_-]{11}$/.test(id)) {
         throw new Error("Invalid video link");
       }
-
-      frame.src = "https://www.youtube.com/embed/" + id;
+  frame.referrerPolicy = "strict-origin-when-cross-origin";
+frame.src = "https://www.youtube.com/embed/" + id;
       message.textContent =
         "Video imepakiwa. Ikiwa mmiliki anaruhusu embedding, itacheza hapa.";
     } catch (error) {
