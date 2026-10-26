@@ -161,6 +161,49 @@ setInterval(updateClock, 1000);
 // ==============================
 
 document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("watch-video-url");
+  const frame = document.getElementById("watch-frame");
+  const message = document.getElementById("watch-message");
+  const button = document.getElementById("watch-play-button");
+
+  if (!input || !frame || !message || !button) return;
+
+  button.addEventListener("click", function () {
+    const raw = input.value.trim();
+    let id = "";
+
+    try {
+      const url = new URL(raw);
+      const host = url.hostname.toLowerCase();
+
+      if (
+        ["youtube.com", "www.youtube.com", "m.youtube.com"].includes(host)
+      ) {
+        if (url.pathname === "/watch") {
+          id = url.searchParams.get("v") || "";
+        } else if (/^\/(embed|live)\/[^/]+/.test(url.pathname)) {
+          id = url.pathname.split("/")[2];
+        }
+      } else if (["youtu.be", "www.youtu.be"].includes(host)) {
+        id = url.pathname.split("/")[1] || "";
+      }
+
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id)) {
+        throw new Error("Invalid YouTube link");
+      }
+
+      frame.src = "https://www.youtube-nocookie.com/embed/" + id;
+      message.textContent =
+        "Kiungo kimekubaliwa. Ikiwa video inaruhusu embedding, itacheza hapa.";
+    } catch (error) {
+      frame.src = "about:blank";
+      message.textContent =
+        "Kiungo si sahihi. Bandika kiungo cha video ya YouTube.";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const select = document.getElementById("league-select");
   const input = document.getElementById("watch-video-url");
   const frame = document.getElementById("watch-frame");
