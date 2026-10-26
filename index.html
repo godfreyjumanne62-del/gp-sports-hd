@@ -25,10 +25,9 @@
 
     <main id="home">
       
-
 <section id="watch-live">
   <h2>⚽ Watch Live Football</h2>
-  <p>Chagua mashindano unayotaka kutazama.</p>
+  <p>Chagua mashindano, kisha bandika kiungo rasmi cha video.</p>
 
   <select id="league-select">
     <option value="">-- Chagua mashindano --</option>
@@ -42,21 +41,36 @@
     <option value="efootball">eFootball</option>
   </select>
 
-  <div id="watch-message">
-    <h3>Choose a competition</h3>
-    <p>Chagua mashindano kwenye menyu hapo juu.</p>
+  <input
+    id="watch-video-url"
+    type="url"
+    placeholder="Bandika kiungo cha video ya YouTube"
+    style="width:100%;padding:12px;box-sizing:border-box;margin:12px 0"
+  >
+
+  <button type="button" id="watch-play-button">
+    ▶ Cheza video
+  </button>
+
+  <div style="width:100%;aspect-ratio:16/9;background:#111;margin-top:16px">
+    <iframe
+      id="watch-frame"
+      title="GP SPORTS HD Football Video"
+      src="about:blank"
+      allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+      style="width:100%;height:100%;border:0">
+    </iframe>
   </div>
 
-  <iframe
-    id="watch-frame"
-    title="Official football stream"
-    src="about:blank"
-    allowfullscreen
-    hidden>
-  </iframe>
+  <div id="watch-message">
+    <p>Video itaonekana hapa baada ya kubandika kiungo halali.</p>
+  </div>
 
   <div id="watch-official-link"></div>
 </section>
+
+
 
 
         <section id="football" class="section">
