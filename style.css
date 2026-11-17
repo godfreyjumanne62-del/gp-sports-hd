@@ -1204,3 +1204,91 @@ footer a,
     padding: 15px;
   }
 }
+
+/* GP SPORTS HD - Modern Sports Design */
+
+:root {
+  --gp-navy: #071b2c;
+  --gp-blue: #102b40;
+  --gp-red: #e21b35;
+  --gp-white: #ffffff;
+  --gp-light: #f3f6f9;
+}
+
+body {
+  margin: 0;
+  background: var(--gp-light);
+  color: #17212b;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: var(--gp-navy);
+  color: var(--gp-white);
+  padding: 18px 5%;
+}
+
+nav {
+  background: var(--gp-blue);
+  padding: 12px 5%;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-right: 18px;
+}
+
+nav a:hover {
+  color: #ff5267;
+}
+
+#watch-live,
+section {
+  border-radius: 12px;
+}
+
+#watch-live {
+  background: white;
+  padding: 24px;
+  margin: 25px auto;
+  max-width: 1100px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.07);
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+}
+
+h2 {
+  color: var(--gp-navy);
+}
+
+button {
+  background: var(--gp-red);
+  color: white;
+  border: 0;
+  border-radius: 7px;
+  padding: 12px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #bd1028;
+}
+
+select, input {
+  border: 1px solid #d5dce3;
+  border-radius: 7px;
+  padding: 12px;
+}
+
+footer {
+  background: var(--gp-navy);
+  color: white;
+  padding: 30px 5%;
+  text-align: center;
+}
